@@ -6,9 +6,8 @@ import androidx.navigation.NavDirections
 class CardSearchFragmentDirections private constructor() {
 
     companion object {
-        fun actionCardSearchFragmentToCardDetailFragment(cardId: String): NavDirections {
-            return ActionOnlyNavDirections(R.id.navigation_card_detail, cardId)
-        }
+        fun actionCardSearchFragmentToCardDetailFragment(cardId: String): NavDirections =
+            ActionOnlyNavDirections(R.id.navigation_card_back, cardId)
     }
 
     // Nested class to handle action with only an ID
