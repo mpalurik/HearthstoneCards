@@ -1,0 +1,19 @@
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/navigation_card_search">
+
+    <fragment
+        android:id="@+id/navigation_card_search"
+        android:name="com.example.hearthstonecards.CardSearchFragment"
+        android:label="Card Search">
+        <action
+            android:id="@+id/actionCardSearchFragmentToCardDetailFragment"
+            app:destination="@id/navigation_card_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_card_detail"
+        android:name="com.example.hearthstonecards.CardDetailFragment"
+        android:label="Card Detail" />
+</navigation>
