@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Description:"
+            android:textColor="@color/blue"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardBackImage"
             android:layout_marginStart="8dp" />
@@ -55,6 +56,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="How to Get:"
+            android:textColor="@color/green"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardBackDescription"
             android:layout_marginStart="8dp" />

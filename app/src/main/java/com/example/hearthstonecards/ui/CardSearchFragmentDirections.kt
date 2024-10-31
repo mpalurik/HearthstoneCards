@@ -7,7 +7,7 @@ class CardSearchFragmentDirections private constructor() {
 
     companion object {
         fun actionCardSearchFragmentToCardDetailFragment(cardId: String): NavDirections =
-            ActionOnlyNavDirections(R.id.navigation_card_back, cardId)
+            ActionOnlyNavDirections(R.id.navigation_card_detail, cardId)
     }
 
     // Nested class to handle action with only an ID

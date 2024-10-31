@@ -20,6 +20,6 @@ interface HearthstoneApiService {
     suspend fun getCardDetail(
         @Header("X-RapidAPI-Key") apiKey: String,
         @Path("cardId") cardId: String
-    ): Response<CardDetail>
+    ): Response<List<CardDetail>>
 
 }

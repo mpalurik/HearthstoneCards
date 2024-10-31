@@ -8,7 +8,20 @@
         android:id="@+id/navigation_card_search"
         android:name="com.example.hearthstonecards.CardSearchFragment"
         android:label="Card Search"
-        tools:layout="@layout/fragment_card_search" />
+        tools:layout="@layout/fragment_card_search">
+
+
+    <action
+        android:id="@+id/action_cardSearchFragment_to_cardDetailFragment"
+        app:destination="@id/navigation_card_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_card_detail"
+        android:name="com.example.hearthstonecards.CardDetailFragment">
+        <argument
+            android:name="cardId"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_card_back"
