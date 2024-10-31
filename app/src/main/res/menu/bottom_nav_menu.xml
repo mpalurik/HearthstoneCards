@@ -1,7 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/navigation_card_search"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Card Search" />
+
+    <item
         android:id="@+id/navigation_card_back"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Card Back" />
-    <!-- You can add more items here when needed -->
 </menu>
