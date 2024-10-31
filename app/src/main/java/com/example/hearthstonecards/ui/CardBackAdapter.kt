@@ -25,9 +25,9 @@ class CardBackAdapter :
             binding.cardBackName.text = cardBack.name
             binding.cardBackDescription.text = cardBack.description
             binding.cardBackHowToGet.text = cardBack.howToGet
-            Glide.with(binding.root.context)
-                .load(cardBack.img)
-                .into(binding.cardBackImage)
+                Glide.with(binding.root.context)
+                    .load(cardBack.img)
+                    .into(binding.cardBackImage)
 
         }
     }
