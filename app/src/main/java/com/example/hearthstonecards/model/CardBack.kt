@@ -4,5 +4,4 @@ data class CardBack(
     val description: String,
     val img: String,
     val howToGet: String
-
 )
