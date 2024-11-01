@@ -39,6 +39,7 @@ class CardSearchFragment : Fragment() {
         }
         binding.recyclerViewCards.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewCards.adapter = adapter
+        binding.placeholderText.visibility = View.VISIBLE
 
         // Observe the LiveData for search results and show/hide the progress bar
         viewModel.cards.observe(viewLifecycleOwner) { cards ->
@@ -65,11 +66,33 @@ class CardSearchFragment : Fragment() {
                 return false
             }
         })
+/*
+        binding.searchBar.setOnSearchClickListener {
+            // Expand the search view programmatically to fill the width
+            val params = binding.searchBar.layoutParams as ViewGroup.MarginLayoutParams
+            params.width = ViewGroup.LayoutParams.MATCH_PARENT
+            binding.searchBar.layoutParams = params
+            binding.searchBar.requestLayout()
+        }
+
+        binding.searchBar.setOnCloseListener {
+            // Restore the search view to iconified state and align to the right
+            val params = binding.searchBar.layoutParams as ViewGroup.MarginLayoutParams
+            params.width = ViewGroup.LayoutParams.WRAP_CONTENT
+            binding.searchBar.layoutParams = params
+            binding.searchBar.requestLayout()
+            false
+        }
+        */
+
     }
+
+
 
     private fun showLoading() {
         binding.loadingSpinner.visibility = View.VISIBLE
         binding.recyclerViewCards.visibility = View.GONE
+        binding.placeholderText.visibility = View.GONE
     }
 
     private fun hideLoading() {
