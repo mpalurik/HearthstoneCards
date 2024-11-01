@@ -42,6 +42,16 @@ class CardDetailFragment : Fragment() {
             if (card != null) {
                 binding.cardNameTextView.text = card.name
                 binding.cardHealthView.text = "Health: ${card.health ?: "N/A"}"
+                binding.cardCostView.text = "Cost: ${card.cost ?: "N/A"}"
+                binding.cardArmourView.text = "Armour: ${card.armor ?: "N/A"}"
+                binding.cardAttackView.text = "Attack: ${card.attack ?: "N/A"}"
+                binding.cardTypeView.text = "Type: ${card.type}"
+                binding.cardRarityView.text = "Rarity: ${card.rarity ?: "N/A"}"
+                binding.cardPlayerClassView.text = "Player class: ${card.playerClass ?: "N/A"}"
+                binding.cardSetView.text = "Card set: ${card.cardSet}"
+                binding.cardFactionView.text = "Faction: ${card.faction ?: "N/A"}"
+                binding.cardArtistView.text = "Artist: ${card.artist ?: "N/A"}"
+
                 // Bind other card data as needed
                 card.img?.let { imgUrl ->
                     Glide.with(this)

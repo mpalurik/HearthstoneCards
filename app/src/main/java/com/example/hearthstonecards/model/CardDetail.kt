@@ -13,5 +13,7 @@ data class CardDetail(
     val playerClass: String?,
     val img: String?,
     val imgGold: String?,
-    val locale: String?
+    val locale: String?,
+    val cost: Int?,
+    val attack: Int?
 )
