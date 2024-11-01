@@ -1,4 +1,5 @@
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -23,12 +24,19 @@ class CardSearchAdapter(private val onCardClicked: (CardSearch) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(card: CardSearch) {
             binding.cardName.text = card.name
-            binding.cardSet.text = card.cardSet
+            binding.cardType.text = card.type
             // Set the image if available
             if (!card.img.isNullOrEmpty()) {
                 Glide.with(binding.cardImage.context)
                     .load(card.img)
                     .into(binding.cardImage)
+
+            }
+            if(card.img.isNullOrEmpty()) {
+                binding.cardImage.visibility = View.GONE
+            }
+            else {
+                binding.cardImage.visibility = View.VISIBLE
             }
             // Click listener to trigger card details
             binding.root.setOnClickListener { onCardClicked(card) }

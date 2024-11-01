@@ -10,6 +10,7 @@ data class CardSearch(
     val artist: String?,
     val collectible: Boolean?,
     val cost: Int?,
+    val type: String?,
     val attack: Int?,
     val flavor: String?,
     val img: String?,
