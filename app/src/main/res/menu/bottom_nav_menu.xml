@@ -1,11 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_card_search"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/searchs"
         android:title="Card Search" />
 
     <item
         android:id="@+id/navigation_card_back"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/card_back"
+        android:layout_width="100dp"
         android:title="Card Back" />
+
+    <item
+        android:id="@+id/navigation_theme"
+        android:icon="@drawable/theme_toggle"
+        android:title="Theme" />
 </menu>

@@ -1,8 +1,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.HearthstoneCards" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Light Theme -->
+    <style name="Base.Theme.HearthstoneCards" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/light_primary</item>
+        <item name="colorPrimaryVariant">@color/light_primary_variant</item>
+        <item name="colorOnPrimary">@color/light_on_primary</item>
+        <item name="colorSecondary">@color/light_secondary</item>
+        <item name="colorOnSecondary">@color/light_on_secondary</item>
+        <item name="android:windowBackground">@color/light_background</item>
+        <item name="colorSurface">@color/light_surface</item>
+        <item name="colorOnSurface">@color/light_on_surface</item>
+        <item name="android:statusBarColor">@color/light_status_bar</item>
+    </style>
+
+    <!-- Dark Theme -->
+    <style name="Base.Theme.HearthstoneCards.Dark" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/dark_primary</item>
+        <item name="colorPrimaryVariant">@color/dark_primary_variant</item>
+        <item name="colorOnPrimary">@color/dark_on_primary</item>
+        <item name="colorSecondary">@color/dark_secondary</item>
+        <item name="colorOnSecondary">@color/dark_on_secondary</item>
+        <item name="android:windowBackground">@color/dark_background</item>
+        <item name="colorSurface">@color/dark_surface</item>
+        <item name="colorOnSurface">@color/dark_on_surface</item>
+        <item name="android:statusBarColor">@color/dark_status_bar</item>
     </style>
 
     <style name="Theme.HearthstoneCards" parent="Base.Theme.HearthstoneCards" />
