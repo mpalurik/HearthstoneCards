@@ -40,9 +40,14 @@ class CardSearchFragment : Fragment() {
         binding.recyclerViewCards.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewCards.adapter = adapter
 
-        // Observe the LiveData from the ViewModel
+        // Observe the LiveData for search results and show/hide the progress bar
         viewModel.cards.observe(viewLifecycleOwner) { cards ->
-            adapter.submitList(cards)
+            if (cards.isNullOrEmpty()) {
+                showLoading() // Show loading spinner when no cards yet
+            } else {
+                hideLoading() // Hide spinner and show results
+                adapter.submitList(cards)
+            }
         }
 
         // Set up the search functionality
@@ -50,15 +55,25 @@ class CardSearchFragment : Fragment() {
             @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
+                    showLoading() // Show loading spinner when search is triggered
                     viewModel.searchCards(it) // Trigger search in ViewModel
                 }
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                // You can handle text change if needed
                 return false
             }
         })
+    }
+
+    private fun showLoading() {
+        binding.loadingSpinner.visibility = View.VISIBLE
+        binding.recyclerViewCards.visibility = View.GONE
+    }
+
+    private fun hideLoading() {
+        binding.loadingSpinner.visibility = View.GONE
+        binding.recyclerViewCards.visibility = View.VISIBLE
     }
 }

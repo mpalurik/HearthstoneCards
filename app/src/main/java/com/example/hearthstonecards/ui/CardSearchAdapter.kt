@@ -43,6 +43,8 @@ class CardSearchAdapter(private val onCardClicked: (CardSearch) -> Unit) :
         }
     }
 
+
+
     // DiffUtil callback for efficiently updating the RecyclerView
     class CardDiffCallback : DiffUtil.ItemCallback<CardSearch>() {
         override fun areItemsTheSame(oldItem: CardSearch, newItem: CardSearch): Boolean {

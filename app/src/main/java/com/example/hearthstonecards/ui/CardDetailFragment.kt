@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.hearthstonecards.databinding.FragmentCardDetailBinding
 
-
 class CardDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentCardDetailBinding
@@ -20,7 +19,7 @@ class CardDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCardDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -30,8 +29,13 @@ class CardDetailFragment : Fragment() {
 
         // Back button functionality
         binding.backButton.setOnClickListener {
-            findNavController().navigateUp() // This will navigate back to the previous fragment
+            findNavController().navigateUp() // Navigate back
         }
+
+        // Show loading spinner initially
+        showLoading()
+
+        // Get the cardId from arguments
         val cardId = arguments?.getString("cardId") ?: return
 
         // Fetch card details from the API
@@ -40,7 +44,9 @@ class CardDetailFragment : Fragment() {
         // Observe changes in card details
         viewModel.card.observe(viewLifecycleOwner) { card ->
             if (card != null) {
+                // Update the UI with card details
                 binding.cardNameTextView.text = card.name
+
                 binding.cardHealthView.text = "Health: ${card.health ?: "N/A"}"
                 binding.cardCostView.text = "Cost: ${card.cost ?: "N/A"}"
                 binding.cardArmourView.text = "Armour: ${card.armor ?: "N/A"}"
@@ -52,17 +58,62 @@ class CardDetailFragment : Fragment() {
                 binding.cardFactionView.text = "Faction: ${card.faction ?: "N/A"}"
                 binding.cardArtistView.text = "Artist: ${card.artist ?: "N/A"}"
 
-                // Bind other card data as needed
+                // Load card image using Glide
                 card.img?.let { imgUrl ->
                     Glide.with(this)
                         .load(imgUrl)
                         .into(binding.cardImageView)
                 }
+
+                // Hide loading spinner and show the content
+                hideLoading()
+
             } else {
                 Log.e("CardDetailFragment", "Card data is null. Please try again.")
-                // Optionally show an error message or placeholder
+                // Optionally handle the error case (e.g., show an error message)
+                hideLoading()
             }
         }
+    }
+
+    private fun showLoading() {
+        // Show loading spinner and hide the card details
+        binding.loadingSpinner.visibility = View.VISIBLE
+        binding.cardImageView.visibility = View.GONE
+        binding.cardNameTextView.visibility = View.GONE
+        binding.backButton.visibility = View.GONE
+        binding.cardHealthView.visibility = View.GONE
+        binding.cardCostView.visibility = View.GONE
+        binding.cardArmourView.visibility = View.GONE
+        binding.cardAttackView.visibility = View.GONE
+        binding.cardTypeView.visibility = View.GONE
+        binding.cardRarityView.visibility = View.GONE
+        binding.cardPlayerClassView.visibility = View.GONE
+        binding.cardSetView.visibility = View.GONE
+        binding.cardFactionView.visibility = View.GONE
+        binding.cardArtistView.visibility = View.GONE
+    }
+
+    private fun hideLoading() {
+        // Hide loading spinner and show the card details
+        binding.loadingSpinner.visibility = View.GONE
+        binding.cardImageView.visibility = View.VISIBLE
+        binding.cardNameTextView.visibility = View.VISIBLE
+        binding.backButton.visibility = View.VISIBLE
+        binding.cardHealthView.visibility = View.VISIBLE
+        binding.cardCostView.visibility = View.VISIBLE
+        binding.cardArmourView.visibility = View.VISIBLE
+        binding.cardAttackView.visibility = View.VISIBLE
+        binding.cardTypeView.visibility = View.VISIBLE
+        binding.cardRarityView.visibility = View.VISIBLE
+        binding.cardPlayerClassView.visibility = View.VISIBLE
+        binding.cardSetView.visibility = View.VISIBLE
+        binding.cardFactionView.visibility = View.VISIBLE
+        binding.cardArtistView.visibility = View.VISIBLE
+    }
+}
+
+
         /*
         val cardId = arguments?.getString("cardId") ?: return
 
@@ -87,6 +138,4 @@ class CardDetailFragment : Fragment() {
 
 
         */
-    }
 
-}

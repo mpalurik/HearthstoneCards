@@ -5,6 +5,7 @@ import retrofit2.http.Header
 import retrofit2.http.Path
 
 interface HearthstoneApiService {
+
     @GET("cardbacks")
     suspend fun getCardBacks(
         @Header("X-RapidAPI-Key") apiKey: String
@@ -23,3 +24,5 @@ interface HearthstoneApiService {
     ): Response<List<CardDetail>>
 
 }
+
+
