@@ -22,7 +22,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="8dp" />
 
-
         <ImageView
             android:id="@+id/cardBackImage"
             android:layout_width="120dp"
