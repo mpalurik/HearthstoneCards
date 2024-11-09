@@ -41,6 +41,7 @@ class CardSearchFragment : Fragment() {
         binding.recyclerViewCards.adapter = adapter
         binding.placeholderText.visibility = View.VISIBLE
 
+
         // Observe the LiveData for search results and show/hide the progress bar
         viewModel.cards.observe(viewLifecycleOwner) { cards ->
             if (cards.isNullOrEmpty()) {
@@ -48,6 +49,7 @@ class CardSearchFragment : Fragment() {
             } else {
                 hideLoading() // Hide spinner and show results
                 adapter.submitList(cards)
+                binding.placeholderText.visibility = View.GONE
             }
         }
 
