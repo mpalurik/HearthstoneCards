@@ -71,7 +71,6 @@ dependencies {
     // Room for persistent storage
     implementation("androidx.room:room-runtime:2.6.0")
 
-
     // Kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
@@ -93,6 +92,9 @@ dependencies {
 
     // Fragment KTX
     implementation("androidx.fragment:fragment-ktx:1.5.1")
+
+    //splashscreen
+    implementation("androidx.core:core-splashscreen:1.0.1")
 
     // Test Dependencies
     testImplementation(libs.junit)

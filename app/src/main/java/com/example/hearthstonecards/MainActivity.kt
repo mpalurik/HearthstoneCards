@@ -7,6 +7,7 @@ import androidx.navigation.ui.NavigationUI
 import com.example.hearthstonecards.databinding.ActivityMainBinding
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +16,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen();
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
